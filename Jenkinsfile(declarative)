@@ -1,6 +1,4 @@
 pipeline {
-    agent { label 'MAVEN_JDK8' }
-    stages {
         stage('vcs') {
             steps {
                 git url: 'https://github.com/khajadevopsmarch23/game-of-life.git',
@@ -8,8 +6,8 @@ pipeline {
             }
         }
         stage('package') {
-            steps {
-                sh 'mvn package'
+             tools {
+                  jdk 'JDK_8_UBUNTU'
             }
         }
         stage('post build') {
@@ -21,7 +19,6 @@ pipeline {
         }
     }
 }
-        
             
         
     
