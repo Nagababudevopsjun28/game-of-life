@@ -3,15 +3,15 @@ pipeline {
     stages {
         stage('vcs') {
             steps {
-                git url: https://github.com/Nagababudevopsjun28/game-of-life.git 
+                git url: https://github.com/Nagababudevopsjun28/game-of-life.git,
                     branch: 'declarative'
             }
         }
         stage('package') {
             tools {
-                 jdk 'JDK_8_UBUNTU'
+                jdk 'JDK_8_UBUNTU'
             }
-            steps {
+            steps {    
                 sh 'mvn package'
             }
         }
@@ -24,7 +24,8 @@ pipeline {
         }
     }
 }
-
+    
+           
 
     
 
