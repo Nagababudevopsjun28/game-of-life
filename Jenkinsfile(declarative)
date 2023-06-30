@@ -15,12 +15,10 @@ pipeline {
         stage('post build') {
             steps {
                 archiveArtifacts artifacts: '**/target/*.jar'
-                junit: '**/surefire-reports/*.xml'
+                                 onlyIfSuccessful: true
+                junit:'**/surefire-reports/TEST-*.xml'
             }
         }
     }
 }
-
-            
-        
     
