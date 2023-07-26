@@ -13,7 +13,7 @@ pipeline {
         }
         stage('package') {
             tools {
-                 jdk 'JDK_8'
+                jdk 'JDK_8'
             }
             steps {
                 sh "mvn ${params.MAVEN_GOAL}"
@@ -22,7 +22,7 @@ pipeline {
         
         stage('post build') {
             steps {
-                archiveArtifacts artifacts: '**target/gameoflife.war',
+                archiveArtifacts artifacts: '**/*.jar',
                                  onlyIfSuccessful: true
                 junit testResults: '**/surefire-reports/TEST-*.xml'
             }
